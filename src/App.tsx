@@ -79,20 +79,34 @@ interface Project {
 
 // ============ DATA ============
 const skills: Skill[] = [
+  // Core Backend - Java
   { name: 'Java', level: 95, category: 'backend', years: 11 },
   { name: 'Spring Boot', level: 95, category: 'backend', years: 10 },
   { name: 'Spring Framework', level: 90, category: 'backend', years: 10 },
-  { name: 'C#', level: 88, category: 'backend', years: 6 },
-  { name: '.NET Core / ASP.NET', level: 85, category: 'backend', years: 6 },
-  { name: 'Python', level: 82, category: 'backend', years: 4 },
+  // Core Backend - .NET
+  { name: 'C#', level: 90, category: 'backend', years: 6 },
+  { name: '.NET Core / ASP.NET', level: 88, category: 'backend', years: 6 },
+  { name: 'Entity Framework', level: 85, category: 'backend', years: 6 },
+  // Core Backend - Python
+  { name: 'Python', level: 92, category: 'backend', years: 8 },
+  { name: 'FastAPI', level: 88, category: 'backend', years: 5 },
+  { name: 'Django', level: 85, category: 'backend', years: 6 },
+  { name: 'AsyncIO', level: 85, category: 'backend', years: 4 },
+  // Frontend
+  { name: 'Angular', level: 90, category: 'frontend', years: 8 },
+  { name: 'React', level: 85, category: 'frontend', years: 5 },
+  { name: 'TypeScript', level: 88, category: 'frontend', years: 7 },
+  { name: 'JavaScript', level: 90, category: 'frontend', years: 12 },
+  { name: 'Node.js', level: 82, category: 'backend', years: 4 },
+  // Architecture
   { name: 'REST API Design', level: 95, category: 'backend', years: 11 },
   { name: 'Microservices', level: 90, category: 'backend', years: 7 },
-  { name: 'Angular', level: 88, category: 'frontend', years: 8 },
-  { name: 'TypeScript', level: 85, category: 'frontend', years: 6 },
+  // Database
   { name: 'PostgreSQL', level: 92, category: 'database', years: 10 },
   { name: 'MySQL', level: 88, category: 'database', years: 10 },
   { name: 'SQL Server', level: 85, category: 'database', years: 6 },
   { name: 'Redis', level: 80, category: 'database', years: 4 },
+  // DevOps
   { name: 'Docker', level: 88, category: 'devops', years: 6 },
   { name: 'Kubernetes', level: 78, category: 'devops', years: 4 },
   { name: 'Apache Kafka', level: 82, category: 'devops', years: 5 },
@@ -102,41 +116,44 @@ const skills: Skill[] = [
 
 const experiences: Experience[] = [
   {
-    title: 'Senior Java Developer',
+    title: 'Senior Full-Stack Engineer',
     company: 'Globant',
     period: 'October 2019 - December 2025',
     description:
-      'Architected and built backend platforms for enterprise web applications and SaaS products. Designed systems that process millions of transactions daily while maintaining sub-second response times.',
-    skills: ['Java', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker', 'Kafka'],
+      'Led backend architecture and development across multiple platforms using Java Spring Boot, C# ASP.NET Core, and Python. Built microservices handling millions of transactions while mentoring teams on clean architecture patterns.',
+    skills: ['Java', 'Spring Boot', 'C#', 'ASP.NET Core', 'Python', 'FastAPI', 'Angular', 'React', 'Docker', 'Kubernetes', 'Kafka', 'AWS'],
     highlights: [
-      'Led backend architecture for a SaaS platform serving 50K+ daily users',
-      'Reduced API latency by 60% through strategic caching and query optimization',
-      'Implemented event-driven microservices with Kafka handling 1M+ events/day',
-      'Mentored 8+ developers on clean architecture patterns',
+      'Architected multi-language microservices platform: Java for core services, Python for ML pipelines, C# for Microsoft integrations',
+      'Built high-volume telemetry ingestion service in Python handling 100K+ events/second with AsyncIO',
+      'Led Docker/Kubernetes deployment strategy reducing deployment time by 80%',
+      'Implemented event-driven architecture with Kafka handling 1M+ events/day across Java and Python services',
+      'Mentored 12+ developers across Java, C#, and Python stacks',
     ],
     insights: [
-      'The jump from "building features" to "owning architecture" is where you stop measuring success by tickets closed and start measuring by incidents avoided. A well-designed system is invisible—it just works.',
-      'Microservices aren\'t about splitting code. They\'re about bounding failure. When one service degrades, the platform keeps running. That understanding changed how I approach every system design.',
-      'Mentoring taught me that senior developers aren\'t just faster coders. They\'re pattern recognizers who can see the shape of a problem before the first line is written.',
-      'The 60% latency reduction wasn\'t one optimization. It was the compound result of a hundred small decisions made consistently over time. Architecture is discipline, not magic.',
+      'Using multiple languages taught me that architecture principles transcend syntax. A well-designed service in Python looks remarkably similar to one in Java or C#—the patterns are universal.',
+      'Python\'s AsyncIO changed how I think about concurrency. The event loop model for high-throughput I/O is fundamentally different from thread pools, and choosing the right model for the workload matters more than the language itself.',
+      'Kubernetes showed me that infrastructure is code. Once you treat YAML with the same respect as Java, the entire deployment pipeline becomes testable, versionable, and reproducible.',
+      'Cross-stack development revealed that the hardest bugs aren\'t language-specific—they\'re integration bugs where systems meet. API contracts, serialization, and error handling transcend any single technology.',
     ],
   },
   {
-    title: 'Java Backend Engineer',
+    title: 'Full-Stack Engineer',
     company: 'Endava',
     period: 'March 2016 - August 2019',
     description:
-      'Developed backend systems and microservices for enterprise platforms. Built the foundation for scalable systems that now handle enterprise-critical workloads.',
-    skills: ['Java', 'Spring Boot', 'Microservices', 'PostgreSQL', 'Redis'],
+      'Developed enterprise platforms using Java Spring Boot and C# ASP.NET Core. Built microservices, data pipelines, and authentication systems serving enterprise-scale workloads.',
+    skills: ['Java', 'Spring Boot', 'C#', '.NET Core', 'Python', 'Angular', 'PostgreSQL', 'Redis', 'Docker'],
     highlights: [
-      'Designed authentication system serving 100K+ concurrent users',
-      'Built real-time data pipeline processing 500K records hourly',
-      'Created reusable service templates reducing dev time by 40%',
+      'Developed hybrid backend using Java Spring Boot for core services and C# for Microsoft ecosystem integrations',
+      'Built Python data pipeline processing 500K records hourly for analytics platform',
+      'Designed authentication system serving 100K+ concurrent users across Java and .NET services',
+      'Created service templates in both Java and C# reducing bootstrap time by 40%',
     ],
     insights: [
-      'Authentication sounds simple until you realize every decision affects every user, every day. Get it wrong, and people can\'t work. Get it right, and nobody notices. That invisible correctness became my standard.',
-      'Real-time pipelines taught me that "fast enough" is a business decision, not a technical one. Understanding the latency budget for each stage shaped how I design data flows.',
-      'Service templates weren\'t about saving keystrokes. They were about embedding good decisions so teams could move fast without重新learning the same lessons.',
+      'Working in both Java and C# taught me that Microsoft and Oracle ecosystems solve the same problems differently. Understanding both gives you leverage in any architecture discussion.',
+      'Python became my go-to for data pipelines because developer velocity matters more than raw performance. The code that\'s easiest to write and understand often wins in production.',
+      'Authentication across multiple stacks requires careful token handling. Understanding JWT, OAuth2, and session management as concepts—not just implementation details—made cross-platform auth possible.',
+      'Service templates weren\'t just code. They embedded architectural decisions so teams could move fast without重新learning the same lessons.',
     ],
   },
   {
@@ -144,17 +161,19 @@ const experiences: Experience[] = [
     company: 'PSL Corp',
     period: 'January 2015 - April 2016',
     description:
-      'Built complete web platforms combining Java backend services with Angular interfaces. First exposure to building systems end-to-end.',
-    skills: ['Java', 'Spring Boot', 'Angular', 'MySQL'],
+      'Built complete web platforms combining Java backend services with Angular interfaces. Delivered financial reporting systems and enterprise dashboards.',
+    skills: ['Java', 'Spring Boot', 'Python', 'Django', 'Angular', 'TypeScript', 'MySQL', 'Docker'],
     highlights: [
-      'Delivered enterprise dashboard used by 200+ daily users',
-      'Built REST API with 50+ endpoints for financial reporting',
-      'Implemented role-based access control for 5 permission levels',
+      'Delivered enterprise financial dashboard used by 200+ daily users',
+      'Built REST API with 50+ endpoints in Java Spring Boot with Angular frontend',
+      'Implemented Python Django admin panel for content management',
+      'Established Docker-based development environment standardizing team workflow',
     ],
     insights: [
       'First time I saw code I wrote running in production for real users. That moment—when someone\'s workday depends on what you built—redefined what "done" means.',
       'Full-stack taught me that the API contract is where backend and frontend meet or fight. Good contracts prevent problems. Bad contracts create tickets forever.',
-      'RBAC isn\'t just about permissions. It\'s about modeling the business. Understanding who can do what is understanding the organization itself.',
+      'Python Django showed me that batteries-included frameworks accelerate development, but you pay the price in flexibility. Choosing between convenience and control is a recurring architectural decision.',
+      'Docker changed my development workflow entirely. "It works on my machine" finally had a solution: ship the machine.',
     ],
   },
   {
@@ -162,16 +181,18 @@ const experiences: Experience[] = [
     company: 'Perficient Latin America',
     period: 'November 2012 - December 2014',
     description:
-      'Started the journey into enterprise software. Learned that code isn\'t just about making things work—it\'s about making things work reliably.',
-    skills: ['Java', 'Spring', 'MySQL', 'JavaScript'],
+      'Started the journey into enterprise software building HR management systems, e-commerce platforms, and internal tools using Java and Python.',
+    skills: ['Java', 'Spring', 'Python', 'Django', 'AngularJS', 'MySQL', 'JavaScript'],
     highlights: [
-      'Contributed to HR management system for 5K+ employees',
-      'Learned fundamentals of clean code and testing',
-      'Built first production APIs that ran for years',
+      'Contributed to HR management system for 5K+ employees using Java and Python',
+      'Built Python automation scripts reducing manual data entry by 60%',
+      'Learned fundamentals of clean code, testing, and version control',
+      'Delivered first production APIs in both Java and Python that ran for years',
     ],
     insights: [
-      'My first production code ran for years. That taught me something I still believe: the code you write today will outlive your memory of writing it. Make it readable.',
+      'My first production code in both Java and Python ran for years. That taught me something I still believe: the code you write today will outlive your memory of writing it. Make it readable.',
       'Clean code isn\'t about aesthetics. It\'s about the next developer—not you six months later, but a stranger who needs to understand it in an hour.',
+      'Python\'s readability made it perfect for automation scripts that business users could actually understand and modify. The best code is code that empowers non-developers.',
       'Enterprise software taught me that "it works on my machine" never ships. The production environment is where code becomes product.',
     ],
   },
@@ -486,12 +507,11 @@ function Hero() {
             </p>
 
             <p className="text-lg text-secondary-600 mb-4 max-w-xl mx-auto lg:mx-0 opacity-0 animate-slide-up animate-delay-300">
-              <span className="font-semibold text-secondary-900">Java Spring Boot. C# ASP.NET Core. Angular.</span> These are the platforms I build with—not just APIs, but complete backend systems that power businesses.
+              <span className="font-semibold text-secondary-900">Java Spring Boot. C# ASP.NET Core. Python FastAPI. Angular. React.</span>
             </p>
 
             <p className="text-lg text-secondary-600 mb-8 max-w-xl mx-auto lg:mx-0 opacity-0 animate-slide-up animate-delay-300">
-              I've spent 18 years learning the same lesson in different syntax: good architecture transcends language.
- Whether it's Java, C#, or TypeScript, the principles of clean design, reliable systems, and maintainable code remain the same.
+              I've spent 18 years building backend systems across multiple stacks. Good architecture transcends language—whether it's Java, C#, Python, or TypeScript, the principles of clean design and reliable systems remain the same.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-slide-up animate-delay-400">
@@ -511,7 +531,7 @@ function Hero() {
                 <div className="text-secondary-600 text-sm md:text-base">Years Experience</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-primary-600">3</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary-600">4</div>
                 <div className="text-secondary-600 text-sm md:text-base">Major Stacks</div>
               </div>
               <div>
@@ -533,26 +553,26 @@ function Hero() {
 
                 <pre className="font-mono text-xs md:text-sm leading-relaxed">
                   <code>
-                    <span className="text-secondary-400">// Backend systems that run businesses</span>
+                    <span className="text-secondary-400"># Polyglot backend engineering</span>
                     {'\n\n'}
-                    <span className="text-primary-500">var</span> platforms = [
+                    <span className="text-primary-500">stacks</span> = [
                     {'\n  '}<span className="text-green-500">"Java Spring Boot"</span>,
                     {'\n  '}<span className="text-green-500">"C# ASP.NET Core"</span>,
-                    {'\n  '}<span className="text-green-500">"Angular Frontend"</span>
-                    {'\n];\n\n'}
-                    <span className="text-primary-500">foreach</span> (<span className="text-yellow-500">var</span> stack <span className="text-primary-500">in</span> platforms)
-                    {'\n{'}
+                    {'\n  '}<span className="text-green-500">"Python FastAPI"</span>,
+                    {'\n  '}<span className="text-green-500">"Angular / React"</span>
+                    {'\n]\n\n'}
+                    <span className="text-primary-500">for</span> stack <span className="text-primary-500">in</span> stacks:
                     {'\n  '}
-                    <span className="text-secondary-400">// Same principles, different syntax</span>
+                    <span className="text-secondary-400"># Same principles, different syntax</span>
                     {'\n  '}
-                    <span className="text-yellow-500">Build</span>(stack).With(
-                    {'\n    '}<span className="text-orange-500">Scalability</span>,
-                    {'\n    '}<span className="text-orange-500">Security</span>,
-                    {'\n    '}<span className="text-orange-500">Maintainability</span>
-                    {'\n  });\n}\n\n'}
-                    <span className="text-secondary-400">// The language changes.</span>
+                    <span className="text-yellow-500">build</span>(stack).with_values(
+                    {'\n    '}<span className="text-orange-500">scalability</span>,
+                    {'\n    '}<span className="text-orange-500">reliability</span>,
+                    {'\n    '}<span className="text-orange-500">clean_code</span>
+                    {'\n  })\n\n'}
+                    <span className="text-secondary-400"># The language changes.</span>
                     {'\n'}
-                    <span className="text-secondary-400">// The engineering doesn't.</span>
+                    <span className="text-secondary-400"># The engineering doesn't.</span>
                   </code>
                 </pre>
               </div>
@@ -588,15 +608,15 @@ function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="tag mb-4 inline-block">About</span>
-          <h2 className="section-heading">Three Stacks, One Philosophy</h2>
+          <h2 className="section-heading">Four Stacks, One Philosophy</h2>
           <p className="section-subheading mx-auto">
-            Java Spring Boot for enterprise scale. C# ASP.NET Core for Microsoft ecosystems. Angular for the frontend layer.
-            Different syntax, same engineering principles.
+            Java Spring Boot for enterprise scale. C# ASP.NET Core for Microsoft ecosystems. Python for data pipelines and ML.
+            Angular/React for the frontend layer. Different syntax, same engineering principles.
           </p>
         </div>
 
         {/* Tech Stack Highlight */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
+        <div className="grid md:grid-cols-4 gap-6 mb-16">
           <div className="card p-8 text-center">
             <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white shadow-lg">
               <Server className="w-8 h-8" />
@@ -624,15 +644,28 @@ function About() {
           </div>
 
           <div className="card p-8 text-center">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white shadow-lg">
+              <Bot className="w-8 h-8" />
+            </div>
+            <h3 className="text-xl font-bold text-secondary-900 mb-2">Python</h3>
+            <p className="text-secondary-600 text-sm mb-4">8 years in data, ML, and automation</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">FastAPI</span>
+              <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">Django</span>
+              <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">AsyncIO</span>
+            </div>
+          </div>
+
+          <div className="card p-8 text-center">
             <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center text-white shadow-lg">
               <Code2 className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-bold text-secondary-900 mb-2">Angular</h3>
+            <h3 className="text-xl font-bold text-secondary-900 mb-2">Angular / React</h3>
             <p className="text-secondary-600 text-sm mb-4">8 years building frontend interfaces</p>
             <div className="flex flex-wrap justify-center gap-2">
               <span className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">TypeScript</span>
               <span className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">RxJS</span>
-              <span className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">NgRx</span>
+              <span className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Node.js</span>
             </div>
           </div>
         </div>
@@ -969,7 +1002,7 @@ function Skills() {
         </div>
 
         {/* Primary Tech Stacks */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-4 gap-6 mb-12">
           <div className="bg-white rounded-2xl p-6 border-2 border-orange-200 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white">
@@ -1008,18 +1041,37 @@ function Skills() {
             </div>
           </div>
 
+          <div className="bg-white rounded-2xl p-6 border-2 border-green-200 shadow-lg">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white">
+                <Bot className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-secondary-900">Python Ecosystem</h3>
+                <p className="text-sm text-secondary-500">8 years</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['Python', 'FastAPI', 'Django', 'AsyncIO', 'LangChain', 'Pandas'].map((skill) => (
+                <span key={skill} className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
           <div className="bg-white rounded-2xl p-6 border-2 border-red-200 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center text-white">
                 <Code2 className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-bold text-secondary-900">Angular Ecosystem</h3>
+                <h3 className="font-bold text-secondary-900">Angular / React</h3>
                 <p className="text-sm text-secondary-500">8 years</p>
               </div>
             </div>
             <div className="flex flex-wrap gap-2">
-              {['Angular', 'TypeScript', 'RxJS', 'NgRx', 'HTML/CSS', 'PrimeNG'].map((skill) => (
+              {['Angular', 'React', 'TypeScript', 'RxJS', 'Node.js', 'JavaScript'].map((skill) => (
                 <span key={skill} className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded-full">
                   {skill}
                 </span>
@@ -1083,18 +1135,25 @@ function Skills() {
           <h3 className="text-2xl font-bold text-secondary-900 mb-8">
             Also Comfortable With
           </h3>
-          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {[
               'Odoo CRM/ERP',
               'Apache Maven',
               'Spring Security',
+              'Pydantic',
+              'Poetry',
+              'pip/venv',
+              'LangChain',
+              'Pinecone',
               'JUnit',
+              'pytest',
               'Git',
               'Hibernate',
               'OAuth2',
               'JWT',
               'WebSocket',
               'GraphQL',
+              'Docker Compose',
               'Linux',
               'Nginx',
             ].map((tool) => (
