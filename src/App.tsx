@@ -485,9 +485,13 @@ function Hero() {
               Enterprise Backend Engineer
             </p>
 
+            <p className="text-lg text-secondary-600 mb-4 max-w-xl mx-auto lg:mx-0 opacity-0 animate-slide-up animate-delay-300">
+              <span className="font-semibold text-secondary-900">Java Spring Boot. C# ASP.NET Core. Angular.</span> These are the platforms I build with—not just APIs, but complete backend systems that power businesses.
+            </p>
+
             <p className="text-lg text-secondary-600 mb-8 max-w-xl mx-auto lg:mx-0 opacity-0 animate-slide-up animate-delay-300">
-              I build systems that actually work. Not demos that break in production, but platforms that scale,
-              APIs that respond when you need them, and codebases that don't require a Rosetta stone to understand.
+              I've spent 18 years learning the same lesson in different syntax: good architecture transcends language.
+ Whether it's Java, C#, or TypeScript, the principles of clean design, reliable systems, and maintainable code remain the same.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-slide-up animate-delay-400">
@@ -504,11 +508,11 @@ function Hero() {
             <div className="grid grid-cols-3 gap-6 mt-12 opacity-0 animate-slide-up animate-delay-500">
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-primary-600">18+</div>
-                <div className="text-secondary-600 text-sm md:text-base">Years Coding</div>
+                <div className="text-secondary-600 text-sm md:text-base">Years Experience</div>
               </div>
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-primary-600">10+</div>
-                <div className="text-secondary-600 text-sm md:text-base">GitHub Projects</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary-600">3</div>
+                <div className="text-secondary-600 text-sm md:text-base">Major Stacks</div>
               </div>
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-primary-600">100%</div>
@@ -527,61 +531,28 @@ function Hero() {
                   <span className="ml-4 text-secondary-400 text-sm font-mono">architecture.java</span>
                 </div>
 
-                <pre className="font-mono text-sm leading-relaxed">
+                <pre className="font-mono text-xs md:text-sm leading-relaxed">
                   <code>
-                    <span className="text-primary-500">public class</span>{' '}
-                    <span className="text-yellow-600">EnterpriseSystem</span>{' {'}
-                    {'\n\n  '}
-                    <span className="text-secondary-400">// The real work happens here.</span>
+                    <span className="text-secondary-400">// Backend systems that run businesses</span>
+                    {'\n\n'}
+                    <span className="text-primary-500">var</span> platforms = [
+                    {'\n  '}<span className="text-green-500">"Java Spring Boot"</span>,
+                    {'\n  '}<span className="text-green-500">"C# ASP.NET Core"</span>,
+                    {'\n  '}<span className="text-green-500">"Angular Frontend"</span>
+                    {'\n];\n\n'}
+                    <span className="text-primary-500">foreach</span> (<span className="text-yellow-500">var</span> stack <span className="text-primary-500">in</span> platforms)
+                    {'\n{'}
                     {'\n  '}
-                    <span className="text-primary-500">private</span>{' '}
-                    <span className="text-green-600">Scalability</span> scalability
-                    {';\n  '}
-                    <span className="text-primary-500">private</span>{' '}
-                    <span className="text-green-600">Reliability</span> reliability
-                    {';\n  '}
-                    <span className="text-primary-500">private</span>{' '}
-                    <span className="text-green-600">Maintainability</span> cleanCode
-                    {';\n\n  '}
-                    <span className="text-yellow-500">@Autowired</span>
+                    <span className="text-secondary-400">// Same principles, different syntax</span>
                     {'\n  '}
-                    <span className="text-primary-500">public</span>{' '}
-                    <span className="text-yellow-600">EnterpriseSystem</span>
-                    {'('}
-                    <span className="text-secondary-500">Years</span>{' '}
-                    <span className="text-orange-500">experience</span>
-                    {') {'}
-                    {'\n    '}
-                    <span className="text-primary-500">this</span>.scalability ={' '}
-                    <span className="text-green-500">battleTested</span>;
-                    {'\n    '}
-                    <span className="text-primary-500">this</span>.reliability ={' '}
-                    <span className="text-green-500">proven</span>;
-                    {'\n    '}
-                    <span className="text-primary-500">this</span>.cleanCode ={' '}
-                    <span className="text-green-500">obsessive</span>;
-                    {'\n  }'}
-                    {'\n\n  '}
-                    <span className="text-primary-500">public</span>{' '}
-                    <span className="text-green-600">Solution</span>{' '}
-                    <span className="text-yellow-600">solve</span>
-                    {'('}
-                    <span className="text-secondary-500">Problem</span> problem
-                    {') {'}
-                    {'\n    '}
-                    <span className="text-secondary-400">// Think first. Code second.</span>
-                    {'\n    '}
-                    <span className="text-primary-500">return</span> problem
-                    {'\n      .'}
-                    <span className="text-yellow-500">deconstruct</span>()
-                    {'\n      .'}
-                    <span className="text-yellow-500">analyze</span>()
-                    {'\n      .'}
-                    <span className="text-yellow-500">design</span>()
-                    {'\n      .'}
-                    <span className="text-yellow-500">implement</span>()
-                    {';\n  }'}
-                    {'\n}'}
+                    <span className="text-yellow-500">Build</span>(stack).With(
+                    {'\n    '}<span className="text-orange-500">Scalability</span>,
+                    {'\n    '}<span className="text-orange-500">Security</span>,
+                    {'\n    '}<span className="text-orange-500">Maintainability</span>
+                    {'\n  });\n}\n\n'}
+                    <span className="text-secondary-400">// The language changes.</span>
+                    {'\n'}
+                    <span className="text-secondary-400">// The engineering doesn't.</span>
                   </code>
                 </pre>
               </div>
@@ -617,10 +588,53 @@ function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="tag mb-4 inline-block">About</span>
-          <h2 className="section-heading">More Than Just Code</h2>
+          <h2 className="section-heading">Three Stacks, One Philosophy</h2>
           <p className="section-subheading mx-auto">
-            Eighteen years of building systems taught me something simple: the best code is the code you don't have to write.
+            Java Spring Boot for enterprise scale. C# ASP.NET Core for Microsoft ecosystems. Angular for the frontend layer.
+            Different syntax, same engineering principles.
           </p>
+        </div>
+
+        {/* Tech Stack Highlight */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          <div className="card p-8 text-center">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white shadow-lg">
+              <Server className="w-8 h-8" />
+            </div>
+            <h3 className="text-xl font-bold text-secondary-900 mb-2">Java Spring Boot</h3>
+            <p className="text-secondary-600 text-sm mb-4">11 years building enterprise platforms</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">Spring Boot</span>
+              <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">Hibernate</span>
+              <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">Maven</span>
+            </div>
+          </div>
+
+          <div className="card p-8 text-center">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center text-white shadow-lg">
+              <Cpu className="w-8 h-8" />
+            </div>
+            <h3 className="text-xl font-bold text-secondary-900 mb-2">C# ASP.NET Core</h3>
+            <p className="text-secondary-600 text-sm mb-4">6 years delivering .NET solutions</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">ASP.NET Core</span>
+              <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">Entity Framework</span>
+              <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">LINQ</span>
+            </div>
+          </div>
+
+          <div className="card p-8 text-center">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center text-white shadow-lg">
+              <Code2 className="w-8 h-8" />
+            </div>
+            <h3 className="text-xl font-bold text-secondary-900 mb-2">Angular</h3>
+            <p className="text-secondary-600 text-sm mb-4">8 years building frontend interfaces</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">TypeScript</span>
+              <span className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">RxJS</span>
+              <span className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">NgRx</span>
+            </div>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -641,8 +655,8 @@ function About() {
                 or monoliths—it's about understanding trade-offs.
               </p>
               <p className="text-secondary-700 leading-relaxed">
-                The difference between a developer and an architect? A developer asks{' '}
-                <em>"How do I implement this?"</em> An architect asks{' '}
+                The difference between knowing a language and knowing engineering? A programmer asks{' '}
+                <em>"How do I implement this?"</em> An engineer asks{' '}
                 <em>"Should we implement this? And if we do, what becomes possible and what becomes harder?"</em>
               </p>
             </div>
@@ -950,8 +964,68 @@ function Skills() {
           <span className="tag mb-4 inline-block">Skills</span>
           <h2 className="section-heading">Technical Arsenal</h2>
           <p className="section-subheading mx-auto">
-            Tools I've used in production. Not resume skills I've seen in demos—actual tools in actual systems.
+            Tools I've used in production across Java, .NET, and Angular ecosystems. Real systems, real experience.
           </p>
+        </div>
+
+        {/* Primary Tech Stacks */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="bg-white rounded-2xl p-6 border-2 border-orange-200 shadow-lg">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white">
+                <Server className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-secondary-900">Java Ecosystem</h3>
+                <p className="text-sm text-secondary-500">11 years</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['Java', 'Spring Boot', 'Spring Framework', 'Hibernate', 'Maven', 'JUnit'].map((skill) => (
+                <span key={skill} className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 border-2 border-purple-200 shadow-lg">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center text-white">
+                <Cpu className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-secondary-900">.NET Ecosystem</h3>
+                <p className="text-sm text-secondary-500">6 years</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['C#', '.NET Core', 'ASP.NET', 'Entity Framework', 'LINQ', 'Razor'].map((skill) => (
+                <span key={skill} className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 border-2 border-red-200 shadow-lg">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center text-white">
+                <Code2 className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-secondary-900">Angular Ecosystem</h3>
+                <p className="text-sm text-secondary-500">8 years</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['Angular', 'TypeScript', 'RxJS', 'NgRx', 'HTML/CSS', 'PrimeNG'].map((skill) => (
+                <span key={skill} className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -962,7 +1036,7 @@ function Skills() {
               className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
                 activeCategory === cat
                   ? 'bg-primary-600 text-white shadow-lg shadow-primary-500/30'
-                  : 'bg-secondary-100 text-secondary-700 hover:bg-secondary-200'
+                  : 'bg-white text-secondary-700 hover:bg-secondary-200 border border-secondary-200'
               }`}
             >
               {cat !== 'all' && skillCategoryIcons[cat]}
