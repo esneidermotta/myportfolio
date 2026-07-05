@@ -22,7 +22,6 @@ import {
   Sparkles,
   Shield,
   Zap,
-  GitBranch,
   MessageSquare,
   CheckCircle2,
   Send,
@@ -37,9 +36,12 @@ import {
 } from 'lucide-react';
 
 // ============ SUPABASE CLIENT ============
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const hasSupabaseConfig = Boolean(supabaseUrl && supabaseKey);
+const supabase = hasSupabaseConfig ? createClient(supabaseUrl, supabaseKey) : null;
+const defaultContactEmail = 'esneidermotta.work@hotmail.com';
+const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || defaultContactEmail;
 
 // ============ TYPES ============
 interface Skill {
@@ -76,6 +78,15 @@ interface Project {
   icon: JSX.Element;
   category: 'backend' | 'devops' | 'ai' | 'fullstack';
 }
+
+interface ContactFormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+type SubmitStatus = 'idle' | 'success' | 'error';
 
 // ============ DATA ============
 const skills: Skill[] = [
@@ -408,7 +419,7 @@ function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <a href="#" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary-500/30">
+              <div className="w-10 h-10 rounded-xl bg-primary-700 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary-700/25 ring-1 ring-white/40">
                 EM
               </div>
               <span className="font-semibold text-secondary-900 hidden sm:block">Esneider Motta</span>
@@ -475,12 +486,11 @@ function Navigation() {
 function Hero() {
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary-50 via-primary-50/30 to-secondary-50" />
-      <div className="absolute top-20 right-10 w-72 h-72 bg-primary-200/30 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary-300/20 rounded-full blur-3xl animate-pulse-slow animate-delay-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary-50 via-primary-50/70 to-secondary-100" />
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/80 to-transparent" />
 
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.025]"
         style={{
           backgroundImage: `
             linear-gradient(to right, theme('colors.secondary.900') 1px, transparent 1px),
@@ -545,9 +555,9 @@ function Hero() {
             <div className="relative perspective-1000">
               <div className="glass rounded-3xl p-8 shadow-2xl shadow-primary-500/10">
                 <div className="flex items-center gap-2 mb-6">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <div className="w-3 h-3 rounded-full bg-green-400" />
+                  <div className="w-3 h-3 rounded-full bg-primary-300" />
+                  <div className="w-3 h-3 rounded-full bg-primary-400" />
+                  <div className="w-3 h-3 rounded-full bg-primary-500" />
                   <span className="ml-4 text-secondary-400 text-sm font-mono">architecture.java</span>
                 </div>
 
@@ -556,19 +566,19 @@ function Hero() {
                     <span className="text-secondary-400"># Polyglot backend engineering</span>
                     {'\n\n'}
                     <span className="text-primary-500">stacks</span> = [
-                    {'\n  '}<span className="text-green-500">"Java Spring Boot"</span>,
-                    {'\n  '}<span className="text-green-500">"C# ASP.NET Core"</span>,
-                    {'\n  '}<span className="text-green-500">"Python FastAPI"</span>,
-                    {'\n  '}<span className="text-green-500">"Angular / React"</span>
+                    {'\n  '}<span className="text-primary-500">"Java Spring Boot"</span>,
+                    {'\n  '}<span className="text-primary-500">"C# ASP.NET Core"</span>,
+                    {'\n  '}<span className="text-primary-500">"Python FastAPI"</span>,
+                    {'\n  '}<span className="text-primary-500">"Angular / React"</span>
                     {'\n]\n\n'}
                     <span className="text-primary-500">for</span> stack <span className="text-primary-500">in</span> stacks:
                     {'\n  '}
                     <span className="text-secondary-400"># Same principles, different syntax</span>
                     {'\n  '}
-                    <span className="text-yellow-500">build</span>(stack).with_values(
-                    {'\n    '}<span className="text-orange-500">scalability</span>,
-                    {'\n    '}<span className="text-orange-500">reliability</span>,
-                    {'\n    '}<span className="text-orange-500">clean_code</span>
+                    <span className="text-primary-600">build</span>(stack).with_values(
+                    {'\n    '}<span className="text-accent-600">scalability</span>,
+                    {'\n    '}<span className="text-accent-600">reliability</span>,
+                    {'\n    '}<span className="text-accent-600">clean_code</span>
                     {'\n  })\n\n'}
                     <span className="text-secondary-400"># The language changes.</span>
                     {'\n'}
@@ -577,12 +587,12 @@ function Hero() {
                 </pre>
               </div>
 
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl shadow-lg shadow-primary-500/30 flex items-center justify-center animate-float">
+              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-xl bg-primary-700 shadow-lg shadow-primary-500/30 flex items-center justify-center animate-float">
                 <Terminal className="w-10 h-10 text-white" />
               </div>
 
               <div
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-success-500 to-success-600 rounded-xl shadow-lg shadow-success-500/30 flex items-center justify-center animate-float"
+                className="absolute -bottom-4 -left-4 w-16 h-16 rounded-xl bg-accent-600 shadow-lg shadow-accent-500/30 flex items-center justify-center animate-float"
                 style={{ animationDelay: '1s' }}
               >
                 <Shield className="w-8 h-8 text-white" />
@@ -618,54 +628,54 @@ function About() {
         {/* Tech Stack Highlight */}
         <div className="grid md:grid-cols-4 gap-6 mb-16">
           <div className="card p-8 text-center">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white shadow-lg">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary-700 flex items-center justify-center text-white shadow-lg">
               <Server className="w-8 h-8" />
             </div>
             <h3 className="text-xl font-bold text-secondary-900 mb-2">Java Spring Boot</h3>
             <p className="text-secondary-600 text-sm mb-4">11 years building enterprise platforms</p>
             <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">Spring Boot</span>
-              <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">Hibernate</span>
-              <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">Maven</span>
+              <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded">Spring Boot</span>
+              <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded">Hibernate</span>
+              <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded">Maven</span>
             </div>
           </div>
 
           <div className="card p-8 text-center">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center text-white shadow-lg">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary-700 flex items-center justify-center text-white shadow-lg">
               <Cpu className="w-8 h-8" />
             </div>
             <h3 className="text-xl font-bold text-secondary-900 mb-2">C# ASP.NET Core</h3>
             <p className="text-secondary-600 text-sm mb-4">6 years delivering .NET solutions</p>
             <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">ASP.NET Core</span>
-              <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">Entity Framework</span>
-              <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">LINQ</span>
+              <span className="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded">ASP.NET Core</span>
+              <span className="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded">Entity Framework</span>
+              <span className="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded">LINQ</span>
             </div>
           </div>
 
           <div className="card p-8 text-center">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white shadow-lg">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-accent-600 flex items-center justify-center text-white shadow-lg">
               <Bot className="w-8 h-8" />
             </div>
             <h3 className="text-xl font-bold text-secondary-900 mb-2">Python</h3>
             <p className="text-secondary-600 text-sm mb-4">8 years in data, ML, and automation</p>
             <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">FastAPI</span>
-              <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">Django</span>
-              <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">AsyncIO</span>
+              <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded">FastAPI</span>
+              <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded">Django</span>
+              <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded">AsyncIO</span>
             </div>
           </div>
 
           <div className="card p-8 text-center">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center text-white shadow-lg">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary-700 flex items-center justify-center text-white shadow-lg">
               <Code2 className="w-8 h-8" />
             </div>
             <h3 className="text-xl font-bold text-secondary-900 mb-2">Angular / React</h3>
             <p className="text-secondary-600 text-sm mb-4">8 years building frontend interfaces</p>
             <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">TypeScript</span>
-              <span className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">RxJS</span>
-              <span className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Node.js</span>
+              <span className="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded">TypeScript</span>
+              <span className="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded">RxJS</span>
+              <span className="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded">Node.js</span>
             </div>
           </div>
         </div>
@@ -729,8 +739,8 @@ function About() {
               <p className="text-secondary-600 mb-4">
                 Working remotely with clients across time zones. Fluent in English and Spanish.
               </p>
-              <div className="flex items-center gap-2 text-success-600">
-                <div className="w-2 h-2 rounded-full bg-success-500 animate-pulse" />
+              <div className="flex items-center gap-2 text-primary-600">
+                <div className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
                 <span className="font-medium">Available for new projects</span>
               </div>
             </div>
@@ -828,7 +838,7 @@ function Experience() {
                 <ul className="space-y-2 mb-4">
                   {exp.highlights.map((highlight, hIdx) => (
                     <li key={hIdx} className="flex items-start gap-2 text-secondary-600">
-                      <CheckCircle2 className="w-5 h-5 text-success-500 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-primary-500 shrink-0 mt-0.5" />
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -1003,9 +1013,9 @@ function Skills() {
 
         {/* Primary Tech Stacks */}
         <div className="grid md:grid-cols-4 gap-6 mb-12">
-          <div className="bg-white rounded-2xl p-6 border-2 border-orange-200 shadow-lg">
+          <div className="bg-white rounded-2xl p-6 border-2 border-primary-200 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white">
+              <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white">
                 <Server className="w-6 h-6" />
               </div>
               <div>
@@ -1015,16 +1025,16 @@ function Skills() {
             </div>
             <div className="flex flex-wrap gap-2">
               {['Java', 'Spring Boot', 'Spring Framework', 'Hibernate', 'Maven', 'JUnit'].map((skill) => (
-                <span key={skill} className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded-full">
+                <span key={skill} className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full">
                   {skill}
                 </span>
               ))}
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 border-2 border-purple-200 shadow-lg">
+          <div className="bg-white rounded-2xl p-6 border-2 border-accent-200 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center text-white">
+              <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white">
                 <Cpu className="w-6 h-6" />
               </div>
               <div>
@@ -1034,16 +1044,16 @@ function Skills() {
             </div>
             <div className="flex flex-wrap gap-2">
               {['C#', '.NET Core', 'ASP.NET', 'Entity Framework', 'LINQ', 'Razor'].map((skill) => (
-                <span key={skill} className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">
+                <span key={skill} className="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded-full">
                   {skill}
                 </span>
               ))}
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 border-2 border-green-200 shadow-lg">
+          <div className="bg-white rounded-2xl p-6 border-2 border-primary-200 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white">
+              <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white">
                 <Bot className="w-6 h-6" />
               </div>
               <div>
@@ -1053,16 +1063,16 @@ function Skills() {
             </div>
             <div className="flex flex-wrap gap-2">
               {['Python', 'FastAPI', 'Django', 'AsyncIO', 'LangChain', 'Pandas'].map((skill) => (
-                <span key={skill} className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">
+                <span key={skill} className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full">
                   {skill}
                 </span>
               ))}
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 border-2 border-red-200 shadow-lg">
+          <div className="bg-white rounded-2xl p-6 border-2 border-accent-200 shadow-lg">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center text-white">
+              <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white">
                 <Code2 className="w-6 h-6" />
               </div>
               <div>
@@ -1072,7 +1082,7 @@ function Skills() {
             </div>
             <div className="flex flex-wrap gap-2">
               {['Angular', 'React', 'TypeScript', 'RxJS', 'Node.js', 'JavaScript'].map((skill) => (
-                <span key={skill} className="px-2 py-1 bg-red-100 text-red-700 text-xs rounded-full">
+                <span key={skill} className="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded-full">
                   {skill}
                 </span>
               ))}
@@ -1087,8 +1097,8 @@ function Skills() {
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 ${
                 activeCategory === cat
-                  ? 'bg-primary-600 text-white shadow-lg shadow-primary-500/30'
-                  : 'bg-white text-secondary-700 hover:bg-secondary-200 border border-secondary-200'
+                  ? 'bg-primary-700 text-white shadow-lg shadow-primary-500/25'
+                  : 'bg-white text-secondary-700 hover:bg-primary-50 border border-primary-100'
               }`}
             >
               {cat !== 'all' && skillCategoryIcons[cat]}
@@ -1101,22 +1111,22 @@ function Skills() {
           {filteredSkills.map((skill, idx) => (
             <div
               key={skill.name}
-              className="card p-6 opacity-0 animate-slide-up"
+              className="card p-6 bg-white border-primary-100 opacity-0 animate-slide-up"
               style={{ animationDelay: `${idx * 50}ms`, animationFillMode: 'forwards' }}
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center text-primary-600">
+                  <div className="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center text-primary-700 ring-1 ring-white">
                     {skillCategoryIcons[skill.category]}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-secondary-900">{skill.name}</h4>
+                    <h4 className="font-semibold text-secondary-800">{skill.name}</h4>
                     {skill.years && (
-                      <span className="text-sm text-secondary-500">{skill.years} years</span>
+                      <span className="text-sm text-secondary-600">{skill.years} years</span>
                     )}
                   </div>
                 </div>
-                <span className="text-lg font-bold text-primary-600">{skill.level}%</span>
+                <span className="text-lg font-bold text-primary-700">{skill.level}%</span>
               </div>
               <div className="skill-bar">
                 <div
@@ -1199,7 +1209,7 @@ function Testimonials() {
                   <svg
                     key={i}
                     className={`w-5 h-5 ${
-                      i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-secondary-600'
+                      i < testimonial.rating ? 'text-amber-400 fill-amber-400' : 'text-secondary-600'
                     }`}
                     viewBox="0 0 20 20"
                   >
@@ -1220,7 +1230,7 @@ function Testimonials() {
               </div>
 
               <div className="flex items-center gap-3 pt-4 border-t border-secondary-700">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white font-bold">
+                <div className="w-12 h-12 rounded-full bg-primary-700 flex items-center justify-center text-white font-bold">
                   {testimonial.client.charAt(0)}
                 </div>
                 <div>
@@ -1237,42 +1247,76 @@ function Testimonials() {
 }
 
 function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setSubmitMessage('');
+
+    const payload: ContactFormData = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      subject: formData.subject.trim(),
+      message: formData.message.trim(),
+    };
 
     try {
-      const { error } = await supabase.from('contact_submissions').insert([formData]);
+      if (!payload.name || !payload.email || !payload.subject || !payload.message) {
+        throw new Error('Please complete every field before sending.');
+      }
 
-      if (error) throw error;
+      if (supabase) {
+        const { error } = await supabase.from('contact_submissions').insert([payload]);
+
+        if (error) throw error;
+
+        setSubmitMessage("Message sent successfully. I'll get back to you soon.");
+      } else if (contactEmail) {
+        const subject = encodeURIComponent(payload.subject);
+        const body = encodeURIComponent(
+          `Name: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`
+        );
+
+        window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+        setSubmitMessage('Your email app is opening with the message ready to send.');
+      } else {
+        throw new Error(
+          'Contact sending is not configured yet. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY, or set VITE_CONTACT_EMAIL for the email fallback.'
+        );
+      }
 
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch {
+    } catch (error) {
       setSubmitStatus('error');
+      setSubmitMessage(error instanceof Error ? error.message : 'Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,154,255,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(0,154,255,0.12),transparent_36%)]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-primary-200" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <span className="tag mb-4 inline-block">Contact</span>
-            <h2 className="section-heading mb-4">Let's Build Something</h2>
-            <p className="section-subheading mx-auto">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/80 text-primary-800 border border-primary-200 shadow-sm mb-4">
+              Contact
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-4">Let's Build Something</h2>
+            <p className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto">
               Have a backend project, API architecture challenge, or enterprise system that needs attention?
               Send me a message and I'll get back to you within 24 hours.
             </p>
@@ -1360,15 +1404,22 @@ function Contact() {
                   )}
                 </button>
 
-                {submitStatus === 'success' && (
-                  <div className="p-4 bg-success-50 border border-success-200 rounded-lg text-success-700 text-center">
-                    Message sent successfully! I'll get back to you soon.
+                {submitStatus === 'success' && submitMessage && (
+                  <div
+                    className="p-4 bg-primary-50 border border-primary-200 rounded-lg text-primary-700 text-center"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    {submitMessage}
                   </div>
                 )}
 
-                {submitStatus === 'error' && (
-                  <div className="p-4 bg-error-50 border border-error-200 rounded-lg text-error-700 text-center">
-                    Something went wrong. Please try again or email me directly.
+                {submitStatus === 'error' && submitMessage && (
+                  <div
+                    className="p-4 bg-error-50 border border-error-200 rounded-lg text-error-700 text-center"
+                    role="alert"
+                  >
+                    {submitMessage}
                   </div>
                 )}
               </form>
@@ -1376,13 +1427,26 @@ function Contact() {
 
             {/* Quick Contact Options */}
             <div className="space-y-6">
+              <div className="card p-6 flex items-center gap-4">
+                <div className="w-14 h-14 rounded-xl bg-primary-700 flex items-center justify-center shadow-lg shadow-primary-700/20">
+                  <Mail className="w-7 h-7 text-white" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-semibold text-secondary-900">Private Email</div>
+                  <div className="text-secondary-600">
+                    Send a project inquiry directly
+                  </div>
+                </div>
+                <CheckCircle2 className="w-5 h-5 text-primary-700 shrink-0" />
+              </div>
+
               <a
                 href="https://github.com/esneidermotta"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="card p-6 flex items-center gap-4 group"
               >
-                <div className="w-14 h-14 rounded-xl bg-secondary-900 flex items-center justify-center group-hover:bg-primary-600 transition-colors">
+                <div className="w-14 h-14 rounded-xl bg-secondary-800 flex items-center justify-center transition-colors shadow-lg shadow-secondary-800/20">
                   <Github className="w-7 h-7 text-white" />
                 </div>
                 <div className="flex-1">
@@ -1404,8 +1468,8 @@ function Contact() {
 
               <div className="card p-6">
                 <h3 className="font-semibold text-secondary-900 mb-3">Availability</h3>
-                <div className="flex items-center gap-2 text-success-600">
-                  <div className="w-2 h-2 rounded-full bg-success-500 animate-pulse" />
+                <div className="flex items-center gap-2 text-primary-600">
+                  <div className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
                   <span>Currently accepting new projects</span>
                 </div>
               </div>
@@ -1423,7 +1487,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-8 h-8 rounded-lg bg-primary-700 flex items-center justify-center text-white font-bold text-sm">
               EM
             </div>
             <span className="text-secondary-400">Esneider Motta</span>
@@ -1438,7 +1502,11 @@ function Footer() {
             >
               <Github className="w-5 h-5" />
             </a>
-            <a href="#contact" className="text-secondary-400 hover:text-white transition-colors">
+            <a
+              href="#contact"
+              className="text-secondary-400 hover:text-white transition-colors"
+              aria-label="Go to contact form"
+            >
               <Mail className="w-5 h-5" />
             </a>
           </div>
