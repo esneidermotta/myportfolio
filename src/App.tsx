@@ -130,10 +130,10 @@ const experiences: Experience[] = [
       'Mentored 12+ developers across Java, C#, and Python stacks',
     ],
     insights: [
-      'Using multiple languages taught me that architecture principles transcend syntax. A well-designed service in Python looks remarkably similar to one in Java or C#—the patterns are universal.',
+      'Using multiple languages taught me that architecture principles transcend syntax. A well-designed service in Python looks remarkably similar to one in Java or C#. The patterns are universal.',
       'Python\'s AsyncIO changed how I think about concurrency. The event loop model for high-throughput I/O is fundamentally different from thread pools, and choosing the right model for the workload matters more than the language itself.',
       'Kubernetes showed me that infrastructure is code. Once you treat YAML with the same respect as Java, the entire deployment pipeline becomes testable, versionable, and reproducible.',
-      'Cross-stack development revealed that the hardest bugs aren\'t language-specific—they\'re integration bugs where systems meet. API contracts, serialization, and error handling transcend any single technology.',
+      'Cross-stack development revealed that the hardest bugs aren\'t language-specific. They\'re integration bugs where systems meet. API contracts, serialization, and error handling transcend any single technology.',
     ],
   },
   {
@@ -152,7 +152,7 @@ const experiences: Experience[] = [
     insights: [
       'Working in both Java and C# taught me that Microsoft and Oracle ecosystems solve the same problems differently. Understanding both gives you leverage in any architecture discussion.',
       'Python became my go-to for data pipelines because developer velocity matters more than raw performance. The code that\'s easiest to write and understand often wins in production.',
-      'Authentication across multiple stacks requires careful token handling. Understanding JWT, OAuth2, and session management as concepts—not just implementation details—made cross-platform auth possible.',
+      'Authentication across multiple stacks requires careful token handling. Understanding JWT, OAuth2, and session management as concepts, not just implementation details, made cross-platform auth possible.',
       'Service templates weren\'t just code. They embedded architectural decisions so teams could move fast without重新learning the same lessons.',
     ],
   },
@@ -170,7 +170,7 @@ const experiences: Experience[] = [
       'Established Docker-based development environment standardizing team workflow',
     ],
     insights: [
-      'First time I saw code I wrote running in production for real users. That moment—when someone\'s workday depends on what you built—redefined what "done" means.',
+      'First time I saw code I wrote running in production for real users. That moment, when someone\'s workday depends on what you built, redefined what "done" means.',
       'Full-stack taught me that the API contract is where backend and frontend meet or fight. Good contracts prevent problems. Bad contracts create tickets forever.',
       'Python Django showed me that batteries-included frameworks accelerate development, but you pay the price in flexibility. Choosing between convenience and control is a recurring architectural decision.',
       'Docker changed my development workflow entirely. "It works on my machine" finally had a solution: ship the machine.',
@@ -191,7 +191,7 @@ const experiences: Experience[] = [
     ],
     insights: [
       'My first production code in both Java and Python ran for years. That taught me something I still believe: the code you write today will outlive your memory of writing it. Make it readable.',
-      'Clean code isn\'t about aesthetics. It\'s about the next developer—not you six months later, but a stranger who needs to understand it in an hour.',
+      'Clean code isn\'t about aesthetics. It\'s about the next developer, not you six months later, but a stranger who needs to understand it in an hour.',
       'Python\'s readability made it perfect for automation scripts that business users could actually understand and modify. The best code is code that empowers non-developers.',
       'Enterprise software taught me that "it works on my machine" never ships. The production environment is where code becomes product.',
     ],
@@ -205,7 +205,7 @@ const projects: Project[] = [
       'High-volume Python backend service for ingesting telemetry from industrial hardware devices. Handles async request paths, bounded queues, and backpressure with full Prometheus observability.',
     tech: ['Python', 'AsyncIO', 'Pydantic', 'Docker', 'Prometheus'],
     insights: [
-      'The production issue wasn\'t CPU or memory—it was p95/p99 latency during bursts because async handlers were doing too much work in the request path.',
+      'The production issue wasn\'t CPU or memory. It was p95/p99 latency during bursts because async handlers were doing too much work in the request path.',
       'Bounded queues with controlled 429 responses prevent cascade failures. Unbounded queues hide overload until memory or latency collapses.',
       'Queue depth, event-loop lag, and rejection counts are the metrics that actually diagnose production problems.',
     ],
@@ -220,8 +220,8 @@ const projects: Project[] = [
     tech: ['Java', 'JSprit', 'Maven', 'Algorithms', 'Optimization'],
     insights: [
       'In routing systems, the first valid solution is easy. The hard part is controlling second-order effects without creating unintended consequences.',
-      'Destroy/repair operators and adaptive weighting let the system find better solutions over time—but each change must be benchmarked against baseline.',
-      'Constraint handling is where routing gets real. Time windows, capacity, driver skills—each constraint multiplies the solution space.',
+      'Destroy/repair operators and adaptive weighting let the system find better solutions over time. But each change must be benchmarked against baseline.',
+      'Constraint handling is where routing gets real. Time windows, capacity, driver skills. Each constraint multiplies the solution space.',
     ],
     url: 'https://github.com/esneidermotta/java-vrp-lns-optimization-engine2',
     icon: <Network className="w-6 h-6" />,
@@ -233,7 +233,7 @@ const projects: Project[] = [
       'Comprehensive guide to deploying, testing, debugging, and monitoring Java applications in Kubernetes. Covers Helm, Istio service mesh, canary deployments, and CI/CD pipelines.',
     tech: ['Kubernetes', 'Docker', 'Helm', 'Istio', 'AWS EKS', 'Skaffold'],
     insights: [
-      'Debugging Kubernetes pods locally changes everything—you can actually see what\'s happening instead of guessing from logs.',
+      'Debugging Kubernetes pods locally changes everything. You can actually see what\'s happening instead of guessing from logs.',
       'Service mesh (Istio/App Mesh) moves traffic management and observability outside the application. The sidecar handles circuit breaking, retries, and tracing.',
       'Canary deployments with traffic shifting let you validate changes with real traffic before full rollout.',
     ],
@@ -247,8 +247,8 @@ const projects: Project[] = [
       'Conversational AI bot using Retrieval-Augmented Generation with Pinecone vector database and LLaMA 2. Demonstrates full RAG pipeline from ingestion to inference.',
     tech: ['Python', 'LangChain', 'Pinecone', 'LLaMA 2', 'RAG', 'FastAPI'],
     insights: [
-      'RAG combines retrieval with generation—you don\'t train the model on your data, you give it context at inference time.',
-      'Vector databases like Pinecone enable semantic search—finding relevant documents by meaning, not just keywords.',
+      'RAG combines retrieval with generation. You don\'t train the model on your data, you give it context at inference time.',
+      'Vector databases like Pinecone enable semantic search. Finding relevant documents by meaning, not just keywords.',
       'The quality of retrieved context determines the quality of the answer. Garbage in, garbage out applies doubly to LLMs.',
     ],
     url: 'https://github.com/esneidermotta/LangChain-RAG-Pinecone-LLM-Conversational-AI',
@@ -276,7 +276,7 @@ const projects: Project[] = [
     tech: ['ASP.NET Core 8', 'Entity Framework Core', 'SQL Server', 'Serilog', 'xUnit'],
     insights: [
       '4-tier architecture separates concerns cleanly: presentation, business logic, data access, and infrastructure. Each layer has one job.',
-      'Repository pattern wraps data access—it\'s not about abstraction for its own sake, but about making tests possible.',
+      'Repository pattern wraps data access. It\'s not about abstraction for its own sake, but about making tests possible.',
       'Real-time stock APIs taught me that external services fail. Circuit breakers and fallbacks aren\'t optional.',
     ],
     url: 'https://github.com/esneidermotta/Stock-Trading-App',
@@ -290,7 +290,7 @@ const projects: Project[] = [
     tech: ['Java', 'Spring Boot', 'Docker', 'Kubernetes', 'Microservices'],
     insights: [
       'Microservices aren\'t about splitting for its own sake. Each service should have a clear boundary and independent deployability.',
-      'Container orchestration is about managing failure. Services restart, reschedule, and relocate—the system keeps running.',
+      'Container orchestration is about managing failure. Services restart, reschedule, and relocate. The system keeps running.',
       'The network between services is where distributed systems complexity lives. Latency, failures, and partial degradation are the norm.',
     ],
     url: 'https://github.com/esneidermotta/Java-kubernetes-docker',
@@ -304,7 +304,7 @@ const projects: Project[] = [
     tech: ['Java', 'Spring Boot', 'Algorithms', 'System Design', 'Collections'],
     insights: [
       'Teaching is the best way to learn. Organizing these concepts forced me to understand them at a level I couldn\'t reach by just using them.',
-      'System design interviews aren\'t about the right answer—they\'re about showing how you think through trade-offs.',
+      'System design interviews aren\'t about the right answer. They\'re about showing how you think through trade-offs.',
       'The gap between "I know this" and "I can explain this clearly" is where real expertise lives.',
     ],
     url: 'https://github.com/esneidermotta/InterviewPre-Java',
@@ -319,7 +319,7 @@ const projects: Project[] = [
     insights: [
       'EF Core Code First means the database schema evolves with the code. Migrations tell the story of the domain model.',
       'Job search domains are complex: candidates, jobs, applications, companies, skills matching. Each relationship needs careful modeling.',
-      'Clean API design means thinking about the consumer—job seekers, recruiters, and administrators see different views of the same data.',
+      'Clean API design means thinking about the consumer. Job seekers, recruiters, and administrators see different views of the same data.',
     ],
     url: 'https://github.com/esneidermotta/Recruiting_Company_Web_API',
     icon: <Briefcase className="w-6 h-6" />,
@@ -331,7 +331,7 @@ const projects: Project[] = [
       'Time management module for Odoo ERP with desktop and Ubuntu Touch support. Demonstrates ERP customization and cross-platform development.',
     tech: ['Python', 'Odoo', 'QML', 'Qt', 'Ubuntu Touch'],
     insights: [
-      'ERP customization isn\'t just adding fields—it\'s understanding business processes enough to model them correctly.',
+      'ERP customization isn\'t just adding fields. It\'s understanding business processes enough to model them correctly.',
       'Cross-platform means different things on desktop, mobile, and touch interfaces. Each has constraints and affordances.',
       'Open source contributions require thinking about users you\'ll never meet. Documentation and clean APIs become critical.',
     ],
@@ -511,7 +511,7 @@ function Hero() {
             </p>
 
             <p className="text-lg text-secondary-600 mb-8 max-w-xl mx-auto lg:mx-0 opacity-0 animate-slide-up animate-delay-300">
-              I've spent 18 years building backend systems across multiple stacks. Good architecture transcends language—whether it's Java, C#, Python, or TypeScript, the principles of clean design and reliable systems remain the same.
+              I've spent 18 years building backend systems across multiple stacks. Good architecture transcends language. Whether it's Java, C#, Python, or TypeScript, the principles of clean design and reliable systems remain the same.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-slide-up animate-delay-400">
@@ -685,7 +685,7 @@ function About() {
                 Now I look down at systems from above. I see the whole landscape before writing a single line.
                 I know that a decision made in the database layer ripples to the API, touches the frontend,
                 and determines whether 3 AM debugging sessions happen. Architecture isn't about microservices
-                or monoliths—it's about understanding trade-offs.
+                or monoliths. It's about understanding trade-offs.
               </p>
               <p className="text-secondary-700 leading-relaxed">
                 The difference between knowing a language and knowing engineering? A programmer asks{' '}
