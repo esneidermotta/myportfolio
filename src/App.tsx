@@ -1394,19 +1394,6 @@ function Contact() {
                 <ExternalLink className="w-5 h-5 text-secondary-400 group-hover:text-primary-600 transition-colors" />
               </a>
 
-              <div className="card p-8 bg-gradient-to-br from-primary-600 to-primary-700 border-0 text-white">
-                <div className="flex items-center gap-2 mb-4">
-                  <Mail className="w-6 h-6" />
-                  <h3 className="text-xl font-bold">Direct Email</h3>
-                </div>
-                <p className="text-primary-100 mb-4">
-                  For urgent inquiries or detailed project discussions.
-                </p>
-                <div className="font-mono text-lg bg-white/10 rounded-lg px-4 py-2">
-                  contact@esneidermotta.dev
-                </div>
-              </div>
-
               <div className="card p-6">
                 <h3 className="font-semibold text-secondary-900 mb-3">Response Time</h3>
                 <div className="flex items-center gap-2 text-secondary-600">
