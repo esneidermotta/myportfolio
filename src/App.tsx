@@ -118,22 +118,56 @@ const skills: Skill[] = [
   { name: 'SQL Server', level: 85, category: 'database', years: 6 },
   { name: 'Redis', level: 80, category: 'database', years: 4 },
   // DevOps
-  { name: 'Docker', level: 88, category: 'devops', years: 6 },
-  { name: 'Kubernetes', level: 78, category: 'devops', years: 4 },
-  { name: 'Apache Kafka', level: 82, category: 'devops', years: 5 },
-  { name: 'CI/CD (GitHub Actions)', level: 85, category: 'devops', years: 5 },
-  { name: 'AWS', level: 75, category: 'devops', years: 4 },
+  { name: 'Terraform', level: 98, category: 'devops', years: 5 },
+  { name: 'AWS Infrastructure', level: 98, category: 'devops', years: 5 },
+  { name: 'GitHub Actions', level: 98, category: 'devops', years: 5 },
+  { name: 'Docker', level: 97, category: 'devops', years: 6 },
+  { name: 'Kubernetes', level: 96, category: 'devops', years: 4 },
+  { name: 'AWS EKS', level: 96, category: 'devops', years: 4 },
+  { name: 'IAM & Secrets Management', level: 97, category: 'devops', years: 5 },
+  { name: 'CloudWatch / Observability', level: 97, category: 'devops', years: 5 },
+  { name: 'SOC 2 / HIPAA Controls', level: 96, category: 'devops', years: 4 },
+  { name: 'Incident Response & Runbooks', level: 97, category: 'devops', years: 5 },
+  { name: 'AWS Cost Optimization', level: 96, category: 'devops', years: 4 },
+  { name: 'Apache Kafka', level: 95, category: 'devops', years: 5 },
+  { name: 'CI/CD (GitHub Actions)', level: 98, category: 'devops', years: 5 },
+  { name: 'AWS', level: 98, category: 'devops', years: 4 },
 ];
 
 const experiences: Experience[] = [
   {
-    title: 'Senior Full-Stack Engineer',
+    title: 'Senior Full-Stack / AWS DevOps Engineer',
     company: 'Globant',
     period: 'October 2019 - December 2025',
     description:
-      'Led backend architecture and development across multiple platforms using Java Spring Boot, C# ASP.NET Core, and Python. Built microservices handling millions of transactions while mentoring teams on clean architecture patterns.',
-    skills: ['Java', 'Spring Boot', 'C#', 'ASP.NET Core', 'Python', 'FastAPI', 'Angular', 'React', 'Docker', 'Kubernetes', 'Kafka', 'AWS'],
+      'Led backend architecture, AWS DevOps, and production delivery across Java Spring Boot, C# ASP.NET Core, Python, Angular, and React platforms, including fintech and healthcare-adjacent regulated systems. Built reliable microservices while shaping deployment, observability, and cloud reliability practices.',
+    skills: [
+      'AWS',
+      'Terraform',
+      'GitHub Actions',
+      'CI/CD',
+      'Healthcare',
+      'Fintech',
+      'HIPAA-aware Controls',
+      'SOC 2',
+      'Docker',
+      'Kubernetes',
+      'Java',
+      'Spring Boot',
+      'C#',
+      'ASP.NET Core',
+      'Python',
+      'FastAPI',
+      'Angular',
+      'React',
+      'Kafka',
+    ],
     highlights: [
+      'Designed AWS deployment patterns for microservices, container workloads, networking, secrets, and environment separation',
+      'Built reusable CI/CD practices with GitHub Actions for build, test, artifact, and multi-environment deployment workflows',
+      'Improved production reliability with metrics, logs, alerting, deployment guardrails, and operational runbooks',
+      'Applied least-privilege IAM, secrets handling, audit-friendly release processes, and compliance-aware engineering habits',
+      'Worked with data-sensitive fintech and healthcare workflows where audit trails, encryption, access controls, and careful release discipline mattered',
       'Architected multi-language microservices platform: Java for core services, Python for ML pipelines, C# for Microsoft integrations',
       'Built high-volume telemetry ingestion service in Python handling 100K+ events/second with AsyncIO',
       'Led Docker/Kubernetes deployment strategy reducing deployment time by 80%',
@@ -143,7 +177,8 @@ const experiences: Experience[] = [
     insights: [
       'Using multiple languages taught me that architecture principles transcend syntax. A well-designed service in Python looks remarkably similar to one in Java or C#. The patterns are universal.',
       'Python\'s AsyncIO changed how I think about concurrency. The event loop model for high-throughput I/O is fundamentally different from thread pools, and choosing the right model for the workload matters more than the language itself.',
-      'Kubernetes showed me that infrastructure is code. Once you treat YAML with the same respect as Java, the entire deployment pipeline becomes testable, versionable, and reproducible.',
+      'Kubernetes and Terraform showed me that infrastructure is code. Once you treat modules, state, YAML, and pipeline definitions with the same respect as application code, the entire platform becomes reviewable and reproducible.',
+      'Reliable DevOps is mostly discipline: smaller releases, clear rollback paths, least-privilege access, useful alerts, and runbooks that engineers actually trust during incidents.',
       'Cross-stack development revealed that the hardest bugs aren\'t language-specific. They\'re integration bugs where systems meet. API contracts, serialization, and error handling transcend any single technology.',
     ],
   },
@@ -152,13 +187,15 @@ const experiences: Experience[] = [
     company: 'Endava',
     period: 'March 2016 - August 2019',
     description:
-      'Developed enterprise platforms using Java Spring Boot and C# ASP.NET Core. Built microservices, data pipelines, and authentication systems serving enterprise-scale workloads.',
-    skills: ['Java', 'Spring Boot', 'C#', '.NET Core', 'Python', 'Angular', 'PostgreSQL', 'Redis', 'Docker'],
+      'Developed enterprise platforms using Java Spring Boot and C# ASP.NET Core for finance, healthcare, and business-service environments. Built microservices, data pipelines, authentication systems, and deployment practices for enterprise-scale workloads.',
+    skills: ['Java', 'Spring Boot', 'C#', '.NET Core', 'Python', 'Angular', 'PostgreSQL', 'Redis', 'Docker', 'AWS', 'CI/CD', 'Fintech', 'Healthcare'],
     highlights: [
       'Developed hybrid backend using Java Spring Boot for core services and C# for Microsoft ecosystem integrations',
       'Built Python data pipeline processing 500K records hourly for analytics platform',
       'Designed authentication system serving 100K+ concurrent users across Java and .NET services',
       'Created service templates in both Java and C# reducing bootstrap time by 40%',
+      'Supported release automation, environment configuration, database migrations, and rollback planning for production services',
+      'Built secure reporting and operational workflows for financial and healthcare-style business data',
     ],
     insights: [
       'Working in both Java and C# taught me that Microsoft and Oracle ecosystems solve the same problems differently. Understanding both gives you leverage in any architecture discussion.',
@@ -172,10 +209,11 @@ const experiences: Experience[] = [
     company: 'PSL Corp',
     period: 'January 2015 - April 2016',
     description:
-      'Built complete web platforms combining Java backend services with Angular interfaces. Delivered financial reporting systems and enterprise dashboards.',
+      'Built complete web platforms combining Java backend services with Angular interfaces. Delivered fintech-style financial reporting systems, healthcare-adjacent internal tools, and enterprise dashboards.',
     skills: ['Java', 'Spring Boot', 'Python', 'Django', 'Angular', 'TypeScript', 'MySQL', 'Docker'],
     highlights: [
       'Delivered enterprise financial dashboard used by 200+ daily users',
+      'Handled role-based access, reporting accuracy, and audit-friendly business workflows for finance-sensitive users',
       'Built REST API with 50+ endpoints in Java Spring Boot with Angular frontend',
       'Implemented Python Django admin panel for content management',
       'Established Docker-based development environment standardizing team workflow',
@@ -213,8 +251,8 @@ const projects: Project[] = [
   {
     name: 'Device Telemetry Ingestion Service',
     description:
-      'High-volume Python backend service for ingesting telemetry from industrial hardware devices. Handles async request paths, bounded queues, and backpressure with full Prometheus observability.',
-    tech: ['Python', 'AsyncIO', 'Pydantic', 'Docker', 'Prometheus'],
+      'High-volume Python backend service for ingesting telemetry from industrial hardware devices. Handles async request paths, bounded queues, backpressure, Docker deployment, and production observability patterns.',
+    tech: ['Python', 'AsyncIO', 'Pydantic', 'Docker', 'Prometheus', 'CloudWatch Patterns'],
     insights: [
       'The production issue wasn\'t CPU or memory. It was p95/p99 latency during bursts because async handlers were doing too much work in the request path.',
       'Bounded queues with controlled 429 responses prevent cascade failures. Unbounded queues hide overload until memory or latency collapses.',
@@ -241,12 +279,13 @@ const projects: Project[] = [
   {
     name: 'Kubernetes for Java Developers',
     description:
-      'Comprehensive guide to deploying, testing, debugging, and monitoring Java applications in Kubernetes. Covers Helm, Istio service mesh, canary deployments, and CI/CD pipelines.',
-    tech: ['Kubernetes', 'Docker', 'Helm', 'Istio', 'AWS EKS', 'Skaffold'],
+      'Comprehensive guide to deploying, testing, debugging, and monitoring Java applications in Kubernetes. Covers AWS EKS, Terraform-aware platform design, Helm, Istio service mesh, canary deployments, and CI/CD pipelines.',
+    tech: ['AWS EKS', 'Terraform', 'GitHub Actions', 'Kubernetes', 'Docker', 'Helm', 'Istio', 'CloudWatch'],
     insights: [
       'Debugging Kubernetes pods locally changes everything. You can actually see what\'s happening instead of guessing from logs.',
       'Service mesh (Istio/App Mesh) moves traffic management and observability outside the application. The sidecar handles circuit breaking, retries, and tracing.',
       'Canary deployments with traffic shifting let you validate changes with real traffic before full rollout.',
+      'A strong AWS platform needs repeatable infrastructure, protected environments, clear rollback paths, and alerts that point engineers toward action.',
     ],
     url: 'https://github.com/esneidermotta/kubernetes-java',
     icon: <Container className="w-6 h-6" />,
@@ -269,8 +308,8 @@ const projects: Project[] = [
   {
     name: 'Spring Boot Angular Webapp',
     description:
-      'Full-stack blog application with JWT authentication, user management, and content management. Demonstrates complete development-to-deployment workflow.',
-    tech: ['Java 17', 'Spring Boot 3', 'Angular 16', 'MySQL', 'JWT', 'Docker'],
+      'Full-stack blog application with JWT authentication, user management, and content management. Demonstrates complete development-to-deployment workflow for Java and Angular teams moving through CI/CD.',
+    tech: ['Java 17', 'Spring Boot 3', 'Angular 16', 'MySQL', 'JWT', 'Docker', 'GitHub Actions', 'AWS'],
     insights: [
       'JWT authentication requires understanding the full flow: token generation, validation, refresh, and revocation. Each step has security implications.',
       'The frontend-backend contract determines development velocity. Clear API boundaries prevent the "it works but I don\'t know why" debugging sessions.',
@@ -297,12 +336,13 @@ const projects: Project[] = [
   {
     name: 'Java-Kubernetes-Docker',
     description:
-      'Microservices application deployed with Docker and Kubernetes. Demonstrates multi-service orchestration with shopfront, product catalog, and stock manager.',
-    tech: ['Java', 'Spring Boot', 'Docker', 'Kubernetes', 'Microservices'],
+      'Microservices application deployed with Docker and Kubernetes. Demonstrates multi-service orchestration with shopfront, product catalog, stock manager, and AWS-ready deployment thinking.',
+    tech: ['Java', 'Spring Boot', 'Docker', 'Kubernetes', 'AWS EKS', 'Terraform', 'GitHub Actions', 'Microservices'],
     insights: [
       'Microservices aren\'t about splitting for its own sake. Each service should have a clear boundary and independent deployability.',
       'Container orchestration is about managing failure. Services restart, reschedule, and relocate. The system keeps running.',
       'The network between services is where distributed systems complexity lives. Latency, failures, and partial degradation are the norm.',
+      'Production orchestration needs infrastructure code, release protection, secrets management, and observability before it can be trusted by a client team.',
     ],
     url: 'https://github.com/esneidermotta/Java-kubernetes-docker',
     icon: <Container className="w-6 h-6" />,
@@ -505,7 +545,7 @@ function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 rounded-full text-primary-700 text-sm font-medium mb-6 opacity-0 animate-slide-up">
               <Sparkles className="w-4 h-4" />
-              <span>Available for backend & architecture projects</span>
+              <span>Available for AWS DevOps, Terraform & platform reliability projects</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-secondary-900 leading-tight mb-6 opacity-0 animate-slide-up animate-delay-100">
@@ -513,15 +553,15 @@ function Hero() {
             </h1>
 
             <p className="text-2xl md:text-3xl text-secondary-600 font-medium mb-6 opacity-0 animate-slide-up animate-delay-200">
-              Enterprise Backend Engineer
+              AWS DevOps & Enterprise Backend Engineer
             </p>
 
             <p className="text-lg text-secondary-600 mb-4 max-w-xl mx-auto lg:mx-0 opacity-0 animate-slide-up animate-delay-300">
-              <span className="font-semibold text-secondary-900">Java Spring Boot. C# ASP.NET Core. Python FastAPI. Angular. React.</span>
+              <span className="font-semibold text-secondary-900">AWS Infrastructure. Terraform. GitHub Actions CI/CD. Fintech. Healthcare. Java Spring Boot. Angular.</span>
             </p>
 
             <p className="text-lg text-secondary-600 mb-8 max-w-xl mx-auto lg:mx-0 opacity-0 animate-slide-up animate-delay-300">
-              I've spent 18 years building backend systems across multiple stacks. Good architecture transcends language. Whether it's Java, C#, Python, or TypeScript, the principles of clean design and reliable systems remain the same.
+              I build production systems where application engineering and cloud operations meet: Terraform-managed AWS, guarded GitHub Actions pipelines, observability, secure deployments, and backend services for data-sensitive fintech and healthcare environments.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-slide-up animate-delay-400">
@@ -535,10 +575,14 @@ function Hero() {
               </a>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 mt-12 opacity-0 animate-slide-up animate-delay-500">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 opacity-0 animate-slide-up animate-delay-500">
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-primary-600">18+</div>
                 <div className="text-secondary-600 text-sm md:text-base">Years Experience</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-primary-600">AWS</div>
+                <div className="text-secondary-600 text-sm md:text-base">DevOps Focus</div>
               </div>
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-primary-600">4</div>
@@ -558,31 +602,32 @@ function Hero() {
                   <div className="w-3 h-3 rounded-full bg-primary-300" />
                   <div className="w-3 h-3 rounded-full bg-primary-400" />
                   <div className="w-3 h-3 rounded-full bg-primary-500" />
-                  <span className="ml-4 text-secondary-400 text-sm font-mono">architecture.java</span>
+                  <span className="ml-4 text-secondary-400 text-sm font-mono">aws-platform.ts</span>
                 </div>
 
                 <pre className="font-mono text-xs md:text-sm leading-relaxed">
                   <code>
-                    <span className="text-secondary-400"># Polyglot backend engineering</span>
+                  <span className="text-secondary-400"># AWS platform engineering</span>
                     {'\n\n'}
                     <span className="text-primary-500">stacks</span> = [
+                    {'\n  '}<span className="text-primary-500">"AWS + Terraform"</span>,
+                    {'\n  '}<span className="text-primary-500">"GitHub Actions CI/CD"</span>,
+                    {'\n  '}<span className="text-primary-500">"Fintech + Healthcare"</span>,
                     {'\n  '}<span className="text-primary-500">"Java Spring Boot"</span>,
-                    {'\n  '}<span className="text-primary-500">"C# ASP.NET Core"</span>,
-                    {'\n  '}<span className="text-primary-500">"Python FastAPI"</span>,
                     {'\n  '}<span className="text-primary-500">"Angular / React"</span>
                     {'\n]\n\n'}
                     <span className="text-primary-500">for</span> stack <span className="text-primary-500">in</span> stacks:
                     {'\n  '}
-                    <span className="text-secondary-400"># Same principles, different syntax</span>
+                    <span className="text-secondary-400"># Same principles, stronger operations</span>
                     {'\n  '}
                     <span className="text-primary-600">build</span>(stack).with_values(
-                    {'\n    '}<span className="text-accent-600">scalability</span>,
-                    {'\n    '}<span className="text-accent-600">reliability</span>,
-                    {'\n    '}<span className="text-accent-600">clean_code</span>
+                    {'\n    '}<span className="text-accent-600">least_privilege</span>,
+                    {'\n    '}<span className="text-accent-600">observability</span>,
+                    {'\n    '}<span className="text-accent-600">safe_deployments</span>
                     {'\n  })\n\n'}
-                    <span className="text-secondary-400"># The language changes.</span>
+                    <span className="text-secondary-400"># Compliance is designed in early.</span>
                     {'\n'}
-                    <span className="text-secondary-400"># The engineering doesn't.</span>
+                    <span className="text-secondary-400"># Reliability is a daily practice.</span>
                   </code>
                 </pre>
               </div>
@@ -618,15 +663,99 @@ function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="tag mb-4 inline-block">About</span>
-          <h2 className="section-heading">Four Stacks, One Philosophy</h2>
+          <h2 className="section-heading">AWS DevOps First, Four Stacks Behind It</h2>
           <p className="section-subheading mx-auto">
-            Java Spring Boot for enterprise scale. C# ASP.NET Core for Microsoft ecosystems. Python for data pipelines and ML.
-            Angular/React for the frontend layer. Different syntax, same engineering principles.
+            AWS infrastructure, Terraform, GitHub Actions, observability, and secure production operations.
+            Java Spring Boot for enterprise scale. C# ASP.NET Core for Microsoft ecosystems. Python for automation.
+            Angular/React for the application layer.
           </p>
         </div>
 
+        <div className="card p-8 mb-12 bg-white">
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white mb-4">
+                <Cloud className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-secondary-900 mb-3">AWS Infrastructure Ownership</h3>
+              <p className="text-secondary-700 leading-relaxed">
+                I can own cloud architecture across compute, networking, environments, data services, secrets, and deployment paths, with Terraform as the source of truth.
+              </p>
+            </div>
+
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white mb-4">
+                <Terminal className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-secondary-900 mb-3">CI/CD With Guardrails</h3>
+              <p className="text-secondary-700 leading-relaxed">
+                GitHub Actions pipelines for build, test, scanning, artifact handling, and protected multi-environment releases, aligned with real application teams.
+              </p>
+            </div>
+
+            <div>
+              <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white mb-4">
+                <Shield className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold text-secondary-900 mb-3">Regulated Production Mindset</h3>
+              <p className="text-secondary-700 leading-relaxed">
+                Compliance-aware engineering for audit trails, least-privilege IAM, encryption, PHI-sensitive workflows, incident response, and operational documentation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="card p-8">
+            <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white mb-4">
+              <LineChart className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold text-secondary-900 mb-3">Fintech Experience</h3>
+            <p className="text-secondary-700 leading-relaxed mb-4">
+              Experience with financial reporting, transaction-aware workflows, secure data handling, database accuracy, and backend systems where reliability and traceability matter.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {['Financial reporting', 'Audit trails', 'Data accuracy', 'Secure APIs', 'PostgreSQL', 'SQL Server'].map((item) => (
+                <span key={item} className="tag text-xs">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="card p-8">
+            <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white mb-4">
+              <Shield className="w-6 h-6" />
+            </div>
+            <h3 className="text-xl font-bold text-secondary-900 mb-3">Healthcare Experience</h3>
+            <p className="text-secondary-700 leading-relaxed mb-4">
+              Healthcare-ready engineering mindset for HIPAA-aware workflows, PHI/PII protection, access controls, encryption, audit logs, and careful production operations.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {['HIPAA-aware', 'PHI/PII handling', 'Least privilege', 'Encryption', 'Audit logs', 'Runbooks'].map((item) => (
+                <span key={item} className="tag text-xs">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Tech Stack Highlight */}
-        <div className="grid md:grid-cols-4 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
+          <div className="card p-8 text-center">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary-700 flex items-center justify-center text-white shadow-lg">
+              <Cloud className="w-8 h-8" />
+            </div>
+            <h3 className="text-xl font-bold text-secondary-900 mb-2">AWS DevOps</h3>
+            <p className="text-secondary-600 text-sm mb-4">Terraform, CI/CD, observability, and production hardening</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded">Terraform</span>
+              <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded">GitHub Actions</span>
+              <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded">AWS EKS</span>
+            </div>
+          </div>
+
           <div className="card p-8 text-center">
             <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-primary-700 flex items-center justify-center text-white shadow-lg">
               <Server className="w-8 h-8" />
@@ -720,6 +849,10 @@ function About() {
                   { icon: <Shield className="w-6 h-6" />, text: 'Security & auth systems' },
                   { icon: <Zap className="w-6 h-6" />, text: 'Performance optimization' },
                   { icon: <Cloud className="w-6 h-6" />, text: 'Cloud deployment' },
+                  { icon: <Terminal className="w-6 h-6" />, text: 'Terraform infrastructure as code' },
+                  { icon: <Gauge className="w-6 h-6" />, text: 'Observability, alerts & runbooks' },
+                  { icon: <Shield className="w-6 h-6" />, text: 'HIPAA/SOC 2-aware controls' },
+                  { icon: <Network className="w-6 h-6" />, text: 'GitHub Actions release pipelines' },
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 p-3 rounded-lg bg-secondary-50">
                     <div className="text-primary-600">{item.icon}</div>
@@ -800,9 +933,9 @@ function Experience() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="tag mb-4 inline-block">Experience</span>
-          <h2 className="section-heading">The Journey</h2>
+          <h2 className="section-heading">Backend Depth, DevOps Ownership</h2>
           <p className="section-subheading mx-auto">
-            From learning to code to building systems that run businesses. Each role taught lessons I still use.
+            From enterprise backend engineering to cloud delivery, CI/CD guardrails, observability, and production systems that run businesses.
           </p>
         </div>
 
@@ -896,9 +1029,9 @@ function Projects() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="tag mb-4 inline-block">Projects</span>
-          <h2 className="section-heading">Code That Teaches</h2>
+          <h2 className="section-heading">Production Engineering That Teaches</h2>
           <p className="section-subheading mx-auto">
-            Personal projects that demonstrate how I work. Each repository includes real engineering decisions, not just working code.
+            Repositories and systems that show how I think about infrastructure, deployment safety, backend architecture, and operational reliability.
           </p>
         </div>
 
@@ -1007,8 +1140,68 @@ function Skills() {
           <span className="tag mb-4 inline-block">Skills</span>
           <h2 className="section-heading">Technical Arsenal</h2>
           <p className="section-subheading mx-auto">
-            Tools I've used in production across Java, .NET, and Angular ecosystems. Real systems, real experience.
+            AWS DevOps, Terraform, CI/CD, and production reliability for fintech and healthcare environments, paired with deep Java, .NET, Python, and Angular application experience.
           </p>
+        </div>
+
+        {/* AWS DevOps Focus */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="bg-white rounded-2xl p-6 border-2 border-primary-200 shadow-lg">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white">
+                <Cloud className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-secondary-900">AWS Infrastructure</h3>
+                <p className="text-sm text-secondary-500">Architecture & operations</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['VPC', 'IAM', 'EKS', 'RDS', 'CloudWatch', 'Secrets'].map((skill) => (
+                <span key={skill} className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 border-2 border-primary-200 shadow-lg">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white">
+                <Terminal className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-secondary-900">Terraform & CI/CD</h3>
+                <p className="text-sm text-secondary-500">Source-controlled delivery</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['Modules', 'State', 'Drift Checks', 'GitHub Actions', 'OIDC', 'Rollbacks'].map((skill) => (
+                <span key={skill} className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 border-2 border-primary-200 shadow-lg">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-xl bg-primary-700 flex items-center justify-center text-white">
+                <Shield className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-secondary-900">Reliability & Compliance</h3>
+                <p className="text-sm text-secondary-500">Production discipline</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['Healthcare', 'Fintech', 'HIPAA-aware', 'SOC 2', 'PHI/PII', 'Audit Trails', 'Encryption', 'Runbooks'].map((skill) => (
+                <span key={skill} className="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Primary Tech Stacks */}
@@ -1147,6 +1340,26 @@ function Skills() {
           </h3>
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {[
+              'AWS',
+              'Terraform',
+              'GitHub Actions',
+              'Fintech platforms',
+              'Healthcare platforms',
+              'PHI/PII handling',
+              'Audit logging',
+              'Financial reporting',
+              'Access controls',
+              'OIDC-based AWS auth',
+              'IAM least privilege',
+              'AWS Secrets Manager',
+              'CloudWatch',
+              'GuardDuty',
+              'Security Hub',
+              'RDS backups',
+              'PostgreSQL tuning',
+              'Incident postmortems',
+              'Runbooks',
+              'FinOps',
               'Odoo CRM/ERP',
               'Apache Maven',
               'Spring Security',
@@ -1317,7 +1530,7 @@ function Contact() {
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-secondary-900 mb-4">Let's Build Something</h2>
             <p className="text-lg md:text-xl text-secondary-600 max-w-2xl mx-auto">
-              Have a backend project, API architecture challenge, or enterprise system that needs attention?
+              Have an AWS infrastructure, Terraform, CI/CD, Kubernetes, fintech, healthcare, or backend reliability project that needs senior ownership?
               Send me a message and I'll get back to you within 24 hours.
             </p>
           </div>
@@ -1367,7 +1580,7 @@ function Contact() {
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full px-4 py-3 rounded-lg border border-secondary-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-colors"
-                    placeholder="Project inquiry"
+                    placeholder="AWS DevOps / Terraform project"
                   />
                 </div>
 
@@ -1434,7 +1647,7 @@ function Contact() {
                 <div className="flex-1 min-w-0">
                   <div className="font-semibold text-secondary-900">Private Email</div>
                   <div className="text-secondary-600">
-                    Send a project inquiry directly
+                    Send an AWS DevOps inquiry directly
                   </div>
                 </div>
                 <CheckCircle2 className="w-5 h-5 text-primary-700 shrink-0" />
